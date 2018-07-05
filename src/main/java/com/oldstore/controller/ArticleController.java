@@ -11,12 +11,5 @@ import java.util.List;
 
 @Controller
 public class ArticleController {
-    @Autowired
-    private ArticleService articleService;
 
-    @ResponseBody
-    @RequestMapping("/art/queryall")
-    public List<Article> returnAllArticle() {
-        return articleService.queryAll();
-    }
 }
