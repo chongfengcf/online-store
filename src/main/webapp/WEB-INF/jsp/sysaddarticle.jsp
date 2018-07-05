@@ -13,25 +13,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="stylesheet" href="DataTables/DataTables-1.10.18/css/jquery.dataTables.css" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/sys/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/sys/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="DataTables/datatables.js"></script>
+    <script src="${pageContext.request.contextPath}/sys/assets/js/echarts.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys/assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys/assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys/assets/css/app.css">
+    <script src="${pageContext.request.contextPath}/sys/assets/js/jquery.min.js"></script>
+
 </head>
 
 <body data-type="widgets">
-<script src="assets/js/theme.js"></script>
+<script src="${pageContext.request.contextPath}/sys/assets/js/theme.js"></script>
 <div class="am-g tpl-g">
     <!-- 头部 -->
     <header>
         <!-- logo -->
         <div class="am-fl tpl-header-logo">
-            <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+            <a href="javascript:;"><img src="${pageContext.request.contextPath}/sys/assets/img/logo.png" alt=""></a>
         </div>
         <!-- 右侧内容 -->
         <div class="tpl-header-fluid">
@@ -67,7 +67,7 @@
                             <li class="tpl-dropdown-menu-messages">
                                 <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                     <div class="menu-messages-ico">
-                                        <img src="assets/img/user04.png" alt="">
+                                        <img src="${pageContext.request.contextPath}/sys/assets/img/user04.png" alt="">
                                     </div>
                                     <div class="menu-messages-time">
                                         3小时前
@@ -86,7 +86,7 @@
                             <li class="tpl-dropdown-menu-messages">
                                 <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                     <div class="menu-messages-ico">
-                                        <img src="assets/img/user02.png" alt="">
+                                        <img src="${pageContext.request.contextPath}/sys/assets/img/user02.png" alt="">
                                     </div>
                                     <div class="menu-messages-time">
                                         5天前
@@ -192,7 +192,7 @@
         <div class="tpl-sidebar-user-panel">
             <div class="tpl-user-panel-slide-toggleable">
                 <div class="tpl-user-panel-profile-picture">
-                    <img src="assets/img/user04.png" alt="">
+                    <img src="${pageContext.request.contextPath}/sys/assets/img/user04.png" alt="">
                 </div>
                 <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -201,7 +201,6 @@
                 <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
             </div>
         </div>
-
 
         <!-- 菜单 -->
         <ul class="sidebar-nav">
@@ -222,7 +221,7 @@
                 </a>
             </li>
             <li class="sidebar-nav-link">
-                <a href="form.html">
+                <a href="form.html" class="active">
                     <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
 
                 </a>
@@ -236,11 +235,11 @@
 
             <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
             <li class="sidebar-nav-link">
-                <a href="javascript:;" class="sidebar-nav-sub-title active">
+                <a href="javascript:;" class="sidebar-nav-sub-title">
                     <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
-                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico sidebar-nav-sub-ico-rotate"></span>
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
                 </a>
-                <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
+                <ul class="sidebar-nav sidebar-nav-sub">
                     <li class="sidebar-nav-link">
                         <a href="table-list.html">
                             <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
@@ -248,7 +247,7 @@
                     </li>
 
                     <li class="sidebar-nav-link">
-                        <a href="table-list-img.html" class="sub-active">
+                        <a href="table-list-img.html">
                             <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
                         </a>
                     </li>
@@ -274,87 +273,151 @@
         </ul>
     </div>
 
-
-
     <!-- 内容区域 -->
     <div class="tpl-content-wrapper">
+
         <div class="container-fluid am-cf">
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 商品列表 <small>SRTORE</small></div>
-                    <p class="page-header-description">商品信息</p>
-                </div>
-                <div class="am-u-lg-3 tpl-index-settings-button">
-                    <a href="${pageContext.request.contextPath}/sys/art/toadd" class="page-header-button"><span class="am-icon-paint-brush"></span>新增商品</a>
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 表单 <small>OLSRTORE</small></div>
+                    <p class="page-header-description">在这里输入商品信息。</p>
                 </div>
             </div>
 
         </div>
+
         <div class="row-content am-cf">
+
+
             <div class="row">
+
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
-
-
-                        <div class="widget-body  am-fr">
-                            <div class="am-u-sm-12">
-                                <table width="100%" id="mytable" class="display">
-                                    <thead>
-                                    <tr>
-                                        <th>商品名称</th>
-                                        <th>标题</th>
-                                        <th>供应商</th>
-                                        <th>价格</th>
-                                        <th>原价</th>
-                                        <th>产地</th>
-                                        <th>上架时间</th>
-                                        <th>库存</th>
-                                        <th>类型</th>
-                                        <th>图片</th>
-                                        <th>操作</th>
-                                    </tr>
-                                    </thead>
-                                </table>
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">商品信息</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
                             </div>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-line-form">
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">商品名称 <span class="tpl-form-line-small-title">articleName</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" name="articleName" class="tpl-form-input" placeholder="请输入文字">
+                                        <small>请填写标题文字10-20字左右。</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" placeholder="请输入文字">
+                                        <small>请填写标题文字10-20字左右。</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">供应商 <span class="tpl-form-line-small-title">supplier</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" placeholder="请输入文字">
+                                        <small>请填写标题文字10-20字左右。</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">价格 <span class="tpl-form-line-small-title">price</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="number" step="0.01" class="tpl-form-input">
+                                        <small>输入价格</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">原价 <span class="tpl-form-line-small-title">prePrice</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="number" step="0.01" class="tpl-form-input">
+                                        <small>输入价格</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">产地 <span class="tpl-form-line-small-title">locality</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" placeholder="请输入文字">
+                                        <small>请填写标题文字10-20字左右。</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="">
+                                        <small>发布时间为必填</small>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">库存 <span class="tpl-form-line-small-title">storage</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="number" step="1" min="1" max="99999" class="tpl-form-input">
+                                        <small>输入库存</small>
+                                    </div>
+                                </div>
+
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">类别 <span class="tpl-form-line-small-title">typeName</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" placeholder="输入类别">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">封面图 <span class="tpl-form-line-small-title">Images</span></label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                            <div class="tpl-form-file-img">
+                                                <img src="${pageContext.request.contextPath}/sys/assets/img/a5.png" alt="">
+                                            </div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                <i class="am-icon-cloud-upload"></i> 添加封面图片</button>
+                                            <input id="doc-form-file" type="file" multiple="">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">描述</label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="" rows="10" id="user-intro" placeholder="描述"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#mytable').DataTable({
-            "ajax": {
-                "url": "/sys/art/queryall",
-                "dataSrc": ""
-            },
-            "columns": [
-                { "data": "articleName" },
-                { "data": "title" },
-                { "data": "supplier" },
-                { "data": "price" },
-                { "data": "prePrice" },
-                { "data": "locality" },
-                { "data": "putawayDate" },
-                { "data": "storage" },
-                { "data": "typeName" },
-                { data: "image",
-                    render : function(data,type, full, meta) {
-                        return "<img src="+data+" />";
-                    }
-                },
-                { data: "id",
-                    render : function (data, type, full, meta) {
-                        return "<a class='am-btn am-btn-warning am-radiusam-btn-xs' href=${pageContext.request.contextPath}/sys/art/detail/" +data +">详情</a>";
-                    }}
-            ]
-        });
-    });
-</script>
+</div>
+<script src="${pageContext.request.contextPath}/sys/assets/js/amazeui.min.js"></script>
+<script src="${pageContext.request.contextPath}/sys/assets/js/amazeui.datatables.min.js"></script>
+<script src="${pageContext.request.contextPath}/sys/assets/js/dataTables.responsive.min.js"></script>
+<script src="${pageContext.request.contextPath}/sys/assets/js/app.js"></script>
+
 </body>
 
 </html>

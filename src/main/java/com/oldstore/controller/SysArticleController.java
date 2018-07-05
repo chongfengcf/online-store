@@ -26,4 +26,9 @@ public class SysArticleController {
         System.out.println(id);
         return null;
     }
+
+    @RequestMapping("/sys/art/toadd")
+    public String toAdd() {
+        return "sysaddarticle";
+    }
 }
