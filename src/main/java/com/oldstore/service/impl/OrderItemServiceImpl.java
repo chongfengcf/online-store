@@ -7,10 +7,12 @@ import com.oldstore.service.OrderItemService;
 import com.oldstore.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class OrderItemServiceImpl implements OrderItemService {
     @Autowired
     private OrderItemDAO orderitemdao;
