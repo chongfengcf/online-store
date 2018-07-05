@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oldstore.dao.OrderDAO">
+  <resultMap id="BaseResultMap" type="com.oldstore.model.Order">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ORDER_CODE" jdbcType="VARCHAR" property="orderCode" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <result column="SEND_DATE" jdbcType="DATE" property="sendDate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="AMOUNT" jdbcType="DOUBLE" property="amount" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.oldstore.model.Order">
+    insert into ec_order (ID, ORDER_CODE, CREATE_DATE,
+      SEND_DATE, `STATUS`, AMOUNT,
+      USER_ID)
+    values (#{id,jdbcType=INTEGER}, #{orderCode,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE},
+      #{sendDate,jdbcType=DATE}, #{status,jdbcType=VARCHAR}, #{amount,jdbcType=DOUBLE},
+      #{userId,jdbcType=INTEGER})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.oldstore.model.Order">
+    update ec_order
+    set ORDER_CODE = #{orderCode,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=DATE},
+      SEND_DATE = #{sendDate,jdbcType=DATE},
+      `STATUS` = #{status,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DOUBLE},
+      USER_ID = #{userId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ec_order
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT * FROM ec_order WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+        SELECT * FROM ec_order ORDER BY ID
+    </select>
+</mapper>

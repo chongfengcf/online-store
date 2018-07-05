@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oldstore.dao.UserDAO">
+  <resultMap id="BaseResultMap" type="com.oldstore.model.User">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
+    <result column="PASS_WORD" jdbcType="VARCHAR" property="passWord" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="INTEGER" property="sex" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ROLE" jdbcType="INTEGER" property="role" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <result column="ACTIVE" jdbcType="VARCHAR" property="active" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.oldstore.model.User">
+    insert into ec_user (ID, LOGIN_NAME, PASS_WORD,
+      `NAME`, SEX, EMAIL, PHONE,
+      ADDRESS, `ROLE`, CREATE_DATE,
+      ACTIVE)
+    values (#{id,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR},
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR}, #{role,jdbcType=INTEGER}, #{createDate,jdbcType=DATE},
+      #{active,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="update" parameterType="com.oldstore.model.User">
+    update ec_user
+    set LOGIN_NAME = #{loginName,jdbcType=VARCHAR},
+      PASS_WORD = #{passWord,jdbcType=VARCHAR},
+      `NAME` = #{name,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=INTEGER},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      `ROLE` = #{role,jdbcType=INTEGER},
+      CREATE_DATE = #{createDate,jdbcType=DATE},
+      ACTIVE = #{active,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from ec_user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT * FROM ec_user WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+        SELECT * FROM ec_user ORDER BY ID
+    </select>
+</mapper>

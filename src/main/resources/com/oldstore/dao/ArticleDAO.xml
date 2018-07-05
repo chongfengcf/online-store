@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oldstore.dao.ArticleDAO">
+  <resultMap id="BaseResultMap" type="com.oldstore.model.Article">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="ARTICLE_NAME" jdbcType="VARCHAR" property="articleName" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="SUPPLIER" jdbcType="VARCHAR" property="supplier" />
+    <result column="PRICE" jdbcType="DOUBLE" property="price" />
+    <result column="PRE_PRICE" jdbcType="DOUBLE" property="prePrice" />
+    <result column="LOCALITY" jdbcType="VARCHAR" property="locality" />
+    <result column="PUTAWAY_DATE" jdbcType="DATE" property="putawayDate" />
+    <result column="STORAGE" jdbcType="INTEGER" property="storage" />
+    <result column="IMAGE" jdbcType="VARCHAR" property="image" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="TYPE_NAME" jdbcType="VARCHAR" property="typeName" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+  </resultMap>
+
+  <insert id="insert" parameterType="com.oldstore.model.Article">
+    insert into ec_article (ID, ARTICLE_NAME, TITLE,
+      SUPPLIER, PRICE, PRE_PRICE,
+      LOCALITY, PUTAWAY_DATE, `STORAGE`,
+      IMAGE, DESCRIPTION, TYPE_NAME,
+      CREATE_DATE)
+    values (#{id,jdbcType=INTEGER}, #{articleName,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+      #{supplier,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, #{prePrice,jdbcType=DOUBLE},
+      #{locality,jdbcType=VARCHAR}, #{putawayDate,jdbcType=DATE}, #{storage,jdbcType=INTEGER},
+      #{image,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{typeName,jdbcType=VARCHAR},
+      #{createDate,jdbcType=DATE})
+  </insert>
+
+  <update id="update" parameterType="com.oldstore.model.Article">
+    update ec_article
+    set ARTICLE_NAME = #{articleName,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SUPPLIER = #{supplier,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=DOUBLE},
+      PRE_PRICE = #{prePrice,jdbcType=DOUBLE},
+      LOCALITY = #{locality,jdbcType=VARCHAR},
+      PUTAWAY_DATE = #{putawayDate,jdbcType=DATE},
+      `STORAGE` = #{storage,jdbcType=INTEGER},
+      IMAGE = #{image,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=DATE}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from ec_article
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT * FROM ec_article WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+        SELECT * FROM ec_article ORDER BY ID
+    </select>
+</mapper>

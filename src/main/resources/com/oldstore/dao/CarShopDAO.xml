@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oldstore.dao.CarShopDAO">
+  <resultMap id="BaseResultMap" type="com.oldstore.model.CarShop">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="fk_ec_article_id" jdbcType="INTEGER" property="fkEcArticleId" />
+    <result column="article_num" jdbcType="INTEGER" property="articleNum" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.oldstore.model.CarShop">
+    insert into ec_car_shop (ID, fk_ec_article_id, article_num,
+      CREATE_DATE)
+    values (#{id,jdbcType=INTEGER}, #{fkEcArticleId,jdbcType=INTEGER}, #{articleNum,jdbcType=INTEGER},
+      #{createDate,jdbcType=DATE})
+  </insert>
+
+  <update id="update" parameterType="com.oldstore.model.CarShop">
+    update ec_car_shop
+    set fk_ec_article_id = #{fkEcArticleId,jdbcType=INTEGER},
+      article_num = #{articleNum,jdbcType=INTEGER},
+      CREATE_DATE = #{createDate,jdbcType=DATE}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from ec_car_shop
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT * FROM ec_car_shop WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+  <select id="queryAll" resultMap="BaseResultMap">
+        SELECT * FROM ec_car_shop ORDER BY ID
+    </select>
+</mapper>

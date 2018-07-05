@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oldstore.dao.OrderItemDAO">
+  <resultMap id="BaseResultMap" type="com.oldstore.model.OrderItem">
+    <id column="ORDER_ID" jdbcType="INTEGER" property="orderId" />
+    <id column="ARTICLE_ID" jdbcType="INTEGER" property="articleId" />
+    <result column="ORDER_NUM" jdbcType="INTEGER" property="orderNum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.oldstore.model.OrderItem">
+    insert into ec_order_item (ORDER_ID, ARTICLE_ID, ORDER_NUM
+      )
+    values (#{orderId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{orderNum,jdbcType=INTEGER}
+      )
+  </insert>
+
+  <update id="update" parameterType="com.oldstore.model.OrderItem">
+    update ec_order_item
+    set ORDER_NUM = #{orderNum,jdbcType=INTEGER}
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+      and ARTICLE_ID = #{articleId,jdbcType=INTEGER}
+  </update>
+
+  <delete id="delete" parameterType="com.oldstore.model.OrderItemKey">
+    delete from ec_order_item
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+      and ARTICLE_ID = #{articleId,jdbcType=INTEGER}
+  </delete>
+
+  <select id="queryById" parameterType="com.oldstore.model.OrderItemKey" resultMap="BaseResultMap">
+    select
+    *
+    from ec_order_item
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+    and ARTICLE_ID = #{articleId,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryByOrderId" parameterType="com.oldstore.model.OrderItemKey" resultMap="BaseResultMap">
+    select
+    *
+    from ec_order_item
+    where ORDER_ID = #{orderId,jdbcType=INTEGER}
+  </select>
+</mapper>
