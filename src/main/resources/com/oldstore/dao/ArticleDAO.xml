@@ -56,7 +56,12 @@
         SELECT * FROM ec_article WHERE ID = #{id,jdbcType=INTEGER}
     </select>
 
+
   <select id="queryAll" resultMap="BaseResultMap">
         SELECT * FROM ec_article ORDER BY ID
     </select>
+
+  <select id="queryByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+      SELECT * FROM ec_article WHERE ARTICLE_NAME LIKE CONCAT('%',#{article_name,jdbcType=VARCHAR},'%' )
+  </select>
 </mapper>

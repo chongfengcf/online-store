@@ -18,4 +18,6 @@ public interface ArticleDAO {
     Article queryById(Integer id);
 
     List<Article> queryAll();
+
+    List<Article> queryByName(String article_name);
 }

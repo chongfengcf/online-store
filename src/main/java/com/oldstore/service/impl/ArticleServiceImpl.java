@@ -39,4 +39,9 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> queryAll() {
         return articledao.queryAll();
     }
+
+    @Override
+    public List<Article> queryByName(String article_name) {
+        return articledao.queryByName(article_name);
+    }
 }

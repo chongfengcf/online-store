@@ -14,4 +14,6 @@ public interface ArticleService {
     Article queryById(Integer id);
 
     List<Article> queryAll();
+
+    List<Article> queryByName(String article_name);
 }
