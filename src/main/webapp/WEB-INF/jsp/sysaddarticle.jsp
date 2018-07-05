@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/sys/assets/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/sys/assets/css/app.css">
     <script src="${pageContext.request.contextPath}/sys/assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys/webuploader/webuploader.css">
+    <script src="${pageContext.request.contextPath}/sys/webuploader/webuploader.html5only.min.js"></script>
 
 </head>
 
@@ -303,6 +305,22 @@
 
                             <form class="am-form tpl-form-line-form">
                                 <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">封面图 <span class="tpl-form-line-small-title">Images</span></label>
+                                    <div class="am-u-sm-9">
+                                        <div class="am-form-group am-form-file">
+                                            <div id="uploader-demo">
+                                                <!--用来存放item-->
+                                                <div id="fileList" class="uploader-list"></div>
+                                                <div id="filePicker">选择图片</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form class="am-form tpl-form-line-form" action="${pageContext.request.contextPath}/sys/art/add" method="post">
+                                <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">商品名称 <span class="tpl-form-line-small-title">articleName</span></label>
                                     <div class="am-u-sm-9">
                                         <input type="text" name="articleName" class="tpl-form-input" placeholder="请输入文字">
@@ -313,7 +331,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">title</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="title" class="tpl-form-input" placeholder="请输入文字">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -321,7 +339,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">供应商 <span class="tpl-form-line-small-title">supplier</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="supplier" class="tpl-form-input" placeholder="请输入文字">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -329,7 +347,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">价格 <span class="tpl-form-line-small-title">price</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="number" step="0.01" class="tpl-form-input">
+                                        <input type="number" name="price" step="0.01" class="tpl-form-input">
                                         <small>输入价格</small>
                                     </div>
                                 </div>
@@ -337,7 +355,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">原价 <span class="tpl-form-line-small-title">prePrice</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="number" step="0.01" class="tpl-form-input">
+                                        <input type="number" name="prePrice" step="0.01" class="tpl-form-input">
                                         <small>输入价格</small>
                                     </div>
                                 </div>
@@ -345,7 +363,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">产地 <span class="tpl-form-line-small-title">locality</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="locality" class="tpl-form-input" placeholder="请输入文字">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -353,7 +371,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="">
+                                        <input type="text" name="putawayDate" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="">
                                         <small>发布时间为必填</small>
                                     </div>
                                 </div>
@@ -361,7 +379,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">库存 <span class="tpl-form-line-small-title">storage</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="number" step="1" min="1" max="99999" class="tpl-form-input">
+                                        <input type="number" name="storage" step="1" min="1" max="99999" class="tpl-form-input">
                                         <small>输入库存</small>
                                     </div>
                                 </div>
@@ -370,22 +388,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">类别 <span class="tpl-form-line-small-title">typeName</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" placeholder="输入类别">
-                                    </div>
-                                </div>
-
-                                <div class="am-form-group">
-                                    <label class="am-u-sm-3 am-form-label">封面图 <span class="tpl-form-line-small-title">Images</span></label>
-                                    <div class="am-u-sm-9">
-                                        <div class="am-form-group am-form-file">
-                                            <div class="tpl-form-file-img">
-                                                <img src="${pageContext.request.contextPath}/sys/assets/img/a5.png" alt="">
-                                            </div>
-                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
-                                                <i class="am-icon-cloud-upload"></i> 添加封面图片</button>
-                                            <input id="doc-form-file" type="file" multiple="">
-                                        </div>
-
+                                        <input type="text" name="typeName" placeholder="输入类别">
                                     </div>
                                 </div>
 
@@ -393,13 +396,13 @@
                                 <div class="am-form-group">
                                     <label for="user-intro" class="am-u-sm-3 am-form-label">描述</label>
                                     <div class="am-u-sm-9">
-                                        <textarea class="" rows="10" id="user-intro" placeholder="描述"></textarea>
+                                        <textarea name="description" class="" rows="10" id="user-intro" placeholder="描述"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
-                                        <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                        <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
                                     </div>
                                 </div>
                             </form>
@@ -417,7 +420,91 @@
 <script src="${pageContext.request.contextPath}/sys/assets/js/amazeui.datatables.min.js"></script>
 <script src="${pageContext.request.contextPath}/sys/assets/js/dataTables.responsive.min.js"></script>
 <script src="${pageContext.request.contextPath}/sys/assets/js/app.js"></script>
+<script>
+    // 初始化Web Uploader
+    var uploader = WebUploader.create({
 
+        // 选完文件后，是否自动上传。
+        auto: true,
+
+        // 文件接收服务端。
+        server: '${pageContext.request.contextPath}/sys/art/image',
+
+        // 选择文件的按钮。可选。
+        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+        pick: '#filePicker',
+
+        // 只允许选择图片文件。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/*'
+        }
+    });
+    // 当有文件添加进来的时候
+    uploader.on( 'fileQueued', function( file ) {
+        var $li = $(
+            '<div id="' + file.id + '" class="file-item thumbnail">' +
+            '<img>' +
+            '<div class="info">' + file.name + '</div>' +
+            '</div>'
+            ),
+            $img = $li.find('img');
+
+
+        // $list为容器jQuery实例
+        $("#fileList").append( $li );
+
+        // 创建缩略图
+        // 如果为非图片文件，可以不用调用此方法。
+        // thumbnailWidth x thumbnailHeight 为 100 x 100
+        uploader.makeThumb( file, function( error, src ) {
+            if ( error ) {
+                $img.replaceWith('<span>不能预览</span>');
+                return;
+            }
+
+            $img.attr( 'src', src );
+        }, 200, 200 );
+    });
+    // 文件上传过程中创建进度条实时显示。
+    uploader.on( 'uploadProgress', function( file, percentage ) {
+        var $li = $( '#'+file.id ),
+            $percent = $li.find('.progress span');
+
+        // 避免重复创建
+        if ( !$percent.length ) {
+            $percent = $('<p class="progress"><span></span></p>')
+                .appendTo( $li )
+                .find('span');
+        }
+
+        $percent.css( 'width', percentage * 100 + '%' );
+    });
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    uploader.on( 'uploadSuccess', function( file ) {
+        $( '#'+file.id ).addClass('upload-state-done');
+    });
+
+    // 文件上传失败，显示上传出错。
+    uploader.on( 'uploadError', function( file ) {
+        var $li = $( '#'+file.id ),
+            $error = $li.find('div.error');
+
+        // 避免重复创建
+        if ( !$error.length ) {
+            $error = $('<div class="error"></div>').appendTo( $li );
+        }
+
+        $error.text('上传失败');
+    });
+
+    // 完成上传完了，成功或者失败，先删除进度条。
+    uploader.on( 'uploadComplete', function( file ) {
+        $( '#'+file.id ).find('.progress').remove();
+    });
+</script>
 </body>
 
 </html>
