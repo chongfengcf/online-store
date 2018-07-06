@@ -30,8 +30,7 @@ public class ArticleController {
 
         if(articles.size() == 0)
         {
-            String msg = "您太潮了，暂时没有您需要的商品";
-            model.addAttribute(msg);
+            model.addAttribute("msg","您太潮了，暂时没有您需要的商品");
         }else {
 
             model.addAttribute("list",articles);

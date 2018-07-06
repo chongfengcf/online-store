@@ -25,6 +25,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="${pageContext.request.contextPath}/front/js/menu_jquery.js"></script>
 <script src="${pageContext.request.contextPath}/front/js/simpleCart.min.js"> </script>
+	<script src="${pageContext.request.contextPath}/front/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+        $().ready(function () {
+            jugeLogin();
+        });
+        function jugeLogin() {
+            var s = <%=session.getAttribute("username") %>;
+            if(s!=null)
+            {
+                document.getElementById('login_li').style.display = "none";
+                document.getElementById('login_success').style.display = "inline";
+                document.getElementById('login_success').innerText = "欢迎，<%=session.getAttribute("username")%>";
+            }else {
+                return false;
+            }
+        }
+
+	</script>
 </head>
 <body>
 <!-- header_top -->
@@ -33,7 +51,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header_top">
 			<div class="top_right">
 				<ul>
-					<li><a href="#">请登录</a></li>|
+					<li id="login_li"><a href="/front/register">请登录</a></li>
+					<li id="login_success" style="display: none"></li>|
 					<li><a href="#">购物车</a></li>|
 					<li><a href="#">联系我们</a></li>
 				</ul>
@@ -41,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top_left">
 				<h2>欢迎光临BUYBUYBUY商城</h2>
 			</div>
-				<div class="clearfix"> </div>
+			<div class="clearfix"> </div>
 		</div>
 	</div>
 </div>
@@ -112,8 +131,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- grids_of_4 -->
 		
 		<div class="grids_of_4" style="width: 890px" >
-            <div></div>
 			<h2>${msg }</h2>
+            <div></div>
 			<c:forEach items="${list }" var="c">
             <div class="grid1_of_4" style="width: 180px;margin-top: 15px">
 				<div class="content_box"><a href="details.html">

@@ -15,6 +15,10 @@ public class CarShop implements Serializable {
 
     private Date createDate;
 
+    private Article article;
+
+    private Integer userId;
+
     private static final long serialVersionUID = 1L;
 
     public Integer getId() {
@@ -48,6 +52,22 @@ public class CarShop implements Serializable {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     @Override

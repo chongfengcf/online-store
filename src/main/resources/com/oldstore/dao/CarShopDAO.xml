@@ -7,6 +7,15 @@
     <result column="article_num" jdbcType="INTEGER" property="articleNum" />
     <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
   </resultMap>
+
+  <resultMap id="ArticleResultMap" type="com.oldstore.model.CarShop">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="article_num" jdbcType="INTEGER" property="articleNum" />
+    <result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+    <association property="article" column="fk_ec_article_id" javaType="Article"
+                 select="com.oldstore.dao.ArticleDAO.queryById"></association>
+  </resultMap>
+
   <insert id="insert" parameterType="com.oldstore.model.CarShop">
     insert into ec_car_shop (ID, fk_ec_article_id, article_num,
       CREATE_DATE)

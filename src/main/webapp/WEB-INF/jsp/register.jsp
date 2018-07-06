@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Details</title>
+	<title>Register</title>
 	<link href="${pageContext.request.contextPath}/front/css/bootstrap.css" rel='stylesheet' type='text/css' />
 	<!-- jQuery (necessary JavaScript plugins) -->
 	<script type='text/javascript' src="${pageContext.request.contextPath}/front/js/jquery-1.11.1.min.js"></script>
@@ -17,32 +17,11 @@
 	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
 	<!-- start menu -->
 	<link href="${pageContext.request.contextPath}/front/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/front/css/etalage.css">
-	<script type="text/javascript" src="${pageContext.request.contextPath}/front/js/megamenu.js"></script>
+	<script type="text/javascript" src="js/megamenu.js"></script>
 	<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-	<script src="${pageContext.request.contextPath}/front/js/jquery.etalage.min.js"></script>
 	<script src="${pageContext.request.contextPath}/front/js/menu_jquery.js"></script>
-	<script src="${pageContext.request.contextPath}/front/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript">
-        $().ready(function () {
-            jugeLogin();
-        });
-        function jugeLogin() {
-            var s = <%=session.getAttribute("username") %>;
-            if(s!=null)
-            {
-                document.getElementById('login_li').style.display = "none";
-                document.getElementById('login_success').style.display = "inline";
-                document.getElementById('login_success').innerText = "欢迎，<%=session.getAttribute("username")%>";
-            }else {
-                return false;
-            }
-        }
-
-	</script>
 </head>
 <body>
 <!-- header_top -->
@@ -51,8 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header_top">
 			<div class="top_right">
 				<ul>
-					<li id="login_li"><a href="/front/register">请登录</a></li>
-					<li id="login_success" style="display: none"></li>|
+					<li><a href="#">请登录</a></li>|
 					<li><a href="#">购物车</a></li>|
 					<li><a href="#">联系我们</a></li>
 				</ul>
@@ -103,48 +81,91 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- content -->
 <div class="container">
-	<div class="women_main">
-		<!-- start content -->
-		<div class="row single">
-			<div class="col-md-9 det">
-				<div class="single_left">
-					<div class="grid images_3_of_2">
-						<ul id="etalage">
-							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="${article.image}" class="img-responsive" />
-								</a>
-							</li>
-						</ul>
-						<div class="clearfix"></div>
-					</div>
-					<div class="desc1 span_3_of_2">
-						<h3>${article.articleName}</h3>
-						<span class="brand">类型: <a href="#">${article.typeName} </a></span>
-						<br>
-						<span class="code">库存: ${article.storage}</span>
-						<p>${article.title}</p>
-						<div class="price">
-							<span class="text">价格:</span>
-							<span class="price-new">$${article.price}</span><br>
+	<div class="main">
+		<!-- start registration -->
+		<div class="registration">
+			<div class="registration_left">
+				<h2>还没有账号? <span> 创建一个吧 </span></h2>
+				<div class="registration_form">
+					<!-- Form -->
+					<form  action="/front/add" method="post">
+						<div>
+							<label>
+								<input placeholder="用户名" name="loginName" type="text" required autofocus>
+							</label>
 						</div>
-						<div class="det_nav1">
+						<div>
+							<label>
+								<input placeholder="密码" type="password" name="passWord" required autofocus>
+							</label>
 						</div>
-						<div class="btn_form">
-							<a href="checkout.html">加入购物车</a>
+						<div>
+							<label>
+								<input placeholder=邮箱地址 type="email" name="email" required>
+							</label>
 						</div>
-					</div>
-					<div class="clearfix"></div>
+						<div class="sky-form">
+							<div class="sky_form1">
+								<ul>
+									<li><label class="radio left"><input type="radio" name="sex"  value="1" vachecked=""><i></i>男</label></li>
+									<li><label class="radio"><input type="radio" value="0" name="sex"><i></i>女</label></li>
+									<div class="clearfix"></div>
+								</ul>
+							</div>
+						</div>
+						<div>
+							<label>
+								<input placeholder="姓名" name="name" type="text" required>
+							</label>
+						</div>
+						<div>
+							<label>
+								<input placeholder="地址" name="address" type="text" required>
+							</label>
+						</div>
+						<div>
+							<label>
+								<input placeholder="电话" name="phone" type="text" required>
+							</label>
+						</div>
+						<input type="hidden" value="0" name="role"/>
+						<div>
+							<input type="submit" value="创建账号" >
+						</div>
+					</form>
+					<!-- /Form -->
 				</div>
-				<div class="single-bottom1">
-					<h6>细节描述</h6>
-					<p class="prod-desc">${article.description}</p>
+			</div>
+			<div class="registration_left">
+				<h2>登录</h2>
+				<div class="registration_form">
+					<!-- Form -->
+					<form action="/front/login" method="post">
+						<div>
+							<label>
+								${msg }
+							</label>
+						</div>
+						<div>
+							<label>
+								<input placeholder="用户名:" name="username" type="text" required>
+							</label>
+						</div>
+						<div>
+							<label>
+								<input placeholder="密码:" name="password" type="password" required>
+							</label>
+						</div>
+						<div>
+							<input type="submit" value="登录">
+						</div>
+					</form>
+					<!-- /Form -->
 				</div>
-
 			</div>
 			<div class="clearfix"></div>
 		</div>
-		<!-- end content -->
+		<!-- end registration -->
 	</div>
 </div>
 <div class="foot-top">
@@ -196,5 +217,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 </body>
-
 </html>

@@ -26,6 +26,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="${pageContext.request.contextPath}/front/js/menu_jquery.js"></script>
 <script src="${pageContext.request.contextPath}/front/js/simpleCart.min.js"> </script>
 <script src="${pageContext.request.contextPath}/front/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+        $().ready(function () {
+            jugeLogin();
+        });
+        function jugeLogin() {
+            var s = <%=session.getAttribute("username") %>;
+            if(s!=null)
+            {
+                document.getElementById('login_li').style.display = "none";
+                document.getElementById('login_success').style.display = "inline";
+                document.getElementById('login_success').innerText = "欢迎，<%=session.getAttribute("username")%>";
+            }else {
+                return false;
+            }
+        }
+
+	</script>
 </head>
 <body>
 <!-- header_top -->
@@ -72,7 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 		<!-- start header menu -->
 			<ul class="megamenu skyblue">
-                <li class="active grid"><a class="color1" href="index.html">主页</a></li>
+                <li class="active grid"><a class="color1" href="#">主页</a></li>
                 <li class="grid"><a class="color2" href="#">手机</a></li>
                 <li><a class="color4" href="#">衣服</a></li>				
                 <li><a class="color5" href="#">书籍</a></li>
@@ -118,14 +135,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<c:forEach items="${list }" var="c">
             <div class="grid1_of_4" style="width: 180px;margin-top: 15px">
 				<div class="content_box"><a href="details.html">
-			   	   	 <img src="../../front/images/w5.jpg" class="img-responsive" alt=""/>
+			   	   	 <img src="${pageContext.request.contextPath}/${c.getImage()}" class="img-responsive" alt=""/>
 				   	  </a>
 				    <h4><a href="/front/findByID?id=${c.getId()}">${c.getArticleName()}</a></h4>
 				     <p>${c.getTitle()}</p>
 					 <div class="grid_1 simpleCart_shelfItem">
 
 					 <div class="item_add"><span class="item_price"><h6>$${c.getPrice()}</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#">加入订单</a></span></div>
+					<div class="item_add"><span class="item_price"><a href="#" id="addCart" onclick=" "  >加入购物车</a></span></div>
 					 </div>
 			   	</div>
 			</div>
@@ -188,21 +205,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 </body>
-<script type="text/javascript">
-    $().ready(function () {
-        jugeLogin();
-    });
-    function jugeLogin() {
-        var s = <%=session.getAttribute("username") %>;
-        if(s!=null)
-        {
-            document.getElementById('login_li').style.display = "none";
-            document.getElementById('login_success').style.display = "inline";
-            document.getElementById('login_success').innerText = "欢迎，<%=session.getAttribute("username")%>";
-        }else {
-            return false;
-        }
-    }
-
-</script>
 </html>
