@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
     public List<User> queryAll() {
         return userdao.queryAll();
     }
+
+    @Override
+    public User authLogin(String username, String password) {
+        return userdao.authLogin(username,password);
+    }
 }

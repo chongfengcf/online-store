@@ -53,4 +53,8 @@
   <select id="queryAll" resultMap="BaseResultMap">
         SELECT * FROM ec_user ORDER BY ID
     </select>
+  
+  <select id="authLogin" parameterType="java.lang.String" resultMap="BaseResultMap">
+      SELECT * FROM ec_user WHERE LOGIN_NAME = #{username} AND  PASS_WORD = #{password}
+  </select>
 </mapper>

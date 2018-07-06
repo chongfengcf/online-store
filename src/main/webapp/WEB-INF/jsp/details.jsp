@@ -17,8 +17,7 @@
 	<meta name="keywords" content="Gretong Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<link href='http://fonts.useso.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.useso.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+
 	<!-- start menu -->
 	<link href="${pageContext.request.contextPath}/front/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/front/css/etalage.css">
@@ -119,14 +118,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"></div>
 					</div>
 					<div class="desc1 span_3_of_2">
-						<h3>商品名</h3>
-						<span class="brand">品牌: <a href="#">啥 </a></span>
+						<h3>${article.articleName}</h3>
+						<span class="brand">类型: <a href="#">${article.typeName} </a></span>
 						<br>
-						<span class="code">库存: Product 11</span>
-						<p>这里是描述</p>
+						<span class="code">库存: ${article.storage}</span>
+						<p>${article.title}</p>
 						<div class="price">
 							<span class="text">价格:</span>
-							<span class="price-new">$110.00</span><span class="price-old">$100.00</span> <br>
+							<span class="price-new">$${article.price}</span><br>
 						</div>
 						<div class="det_nav1">
 						</div>
@@ -138,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="single-bottom1">
 					<h6>细节描述</h6>
-					<p class="prod-desc">很多乱七八糟的描述</p>
+					<p class="prod-desc">${article.description}</p>
 				</div>
 
 			</div>
