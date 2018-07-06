@@ -12,18 +12,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="icon" type="image/png" href="assets/i/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/sys/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/sys/assets/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-    <link rel="stylesheet" href="assets/css/amazeui.datatables.min.css" />
-    <link rel="stylesheet" href="assets/css/app.css">
-    <script src="assets/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys//assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys//assets/css/amazeui.datatables.min.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/sys//assets/css/app.css">
+    <script src="${pageContext.request.contextPath}/sys//assets/js/jquery.min.js"></script>
 
 </head>
 
 <body data-type="login">
-<script src="assets/js/theme.js"></script>
+<script src="${pageContext.request.contextPath}/sys//assets/js/theme.js"></script>
 <div class="am-g tpl-g">
     <!-- 风格切换 -->
     <div class="tpl-skiner">
@@ -80,14 +80,14 @@
         </div>
     </div>
 </div>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/sys//assets/js/amazeui.min.js"></script>
+<script src="${pageContext.request.contextPath}/sys//assets/js/app.js"></script>
 <script>
 function JsonLogin() {
     var loginName = $("#username").val();
     var passWord = $("#password").val();
     $.ajax({
-        url : "${pageContext.request.contextPath}/sys/check",
+        url : "${pageContext.request.contextPath}/sys/login",
         type : "post",
         data : JSON.stringify({loginName:loginName, passWord:passWord, role:1}),
         contentType : "application/json;charset=UTF-8",
