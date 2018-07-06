@@ -1,6 +1,7 @@
 package com.oldstore.service;
 
 import com.oldstore.model.User;
+import sun.security.util.Password;
 
 import java.util.List;
 
@@ -14,4 +15,6 @@ public interface UserService {
     User queryById(Integer id);
 
     List<User> queryAll();
+
+    User authLogin(String username, String password);
 }

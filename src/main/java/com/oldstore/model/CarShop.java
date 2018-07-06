@@ -5,10 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * ec_car_shop
- * @author 
- */
+
 public class CarShop implements Serializable {
     private Integer id;
 
