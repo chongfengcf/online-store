@@ -24,14 +24,14 @@
 
 </head>
 
-<body data-type="index">
-<script src="assets/js/theme.js"></script>
+<body data-type="widgets">
+<script src="${pageContext.request.contextPath}/sys/assets/js/theme.js"></script>
 <div class="am-g tpl-g">
     <!-- 头部 -->
     <header>
         <!-- logo -->
         <div class="am-fl tpl-header-logo">
-            <a href="javascript:;"><img src="assets/img/logo.png" alt=""></a>
+            <a href="javascript:;"><img src="${pageContext.request.contextPath}/sys/assets/img/logo.png" alt=""></a>
         </div>
         <!-- 右侧内容 -->
         <div class="tpl-header-fluid">
@@ -67,7 +67,7 @@
                             <li class="tpl-dropdown-menu-messages">
                                 <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                     <div class="menu-messages-ico">
-                                        <img src="assets/img/user04.png" alt="">
+                                        <img src="${pageContext.request.contextPath}/sys/assets/img/user04.png" alt="">
                                     </div>
                                     <div class="menu-messages-time">
                                         3小时前
@@ -75,10 +75,10 @@
                                     <div class="menu-messages-content">
                                         <div class="menu-messages-content-title">
                                             <i class="am-icon-circle-o am-text-success"></i>
-                                            <span>夕风色</span>
+                                            <span>沈鑫</span>
                                         </div>
-                                        <div class="am-text-truncate"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </div>
-                                        <div class="menu-messages-content-time">2016-09-21 下午 16:40</div>
+                                        <div class="am-text-truncate"> 我觉得这个后台管理非常厉害，运用到了很多牛逼的技术。</div>
+                                        <div class="menu-messages-content-time">2018-07-06 下午 14:31</div>
                                     </div>
                                 </a>
                             </li>
@@ -86,7 +86,7 @@
                             <li class="tpl-dropdown-menu-messages">
                                 <a href="javascript:;" class="tpl-dropdown-menu-messages-item am-cf">
                                     <div class="menu-messages-ico">
-                                        <img src="assets/img/user02.png" alt="">
+                                        <img src="${pageContext.request.contextPath}/sys/assets/img/user02.png" alt="">
                                     </div>
                                     <div class="menu-messages-time">
                                         5天前
@@ -94,10 +94,10 @@
                                     <div class="menu-messages-content">
                                         <div class="menu-messages-content-title">
                                             <i class="am-icon-circle-o am-text-warning"></i>
-                                            <span>禁言小张</span>
+                                            <span>林凉席</span>
                                         </div>
-                                        <div class="am-text-truncate"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </div>
-                                        <div class="menu-messages-content-time">2016-09-16 上午 09:23</div>
+                                        <div class="am-text-truncate"> 我个人非常喜欢吃椰子鸡，因为非常的好吃。</div>
+                                        <div class="menu-messages-content-time">2018-07-06 上午 09:23</div>
                                     </div>
                                 </a>
                             </li>
@@ -133,7 +133,7 @@
                                 <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
                                     <div class="tpl-dropdown-menu-notifications-title">
                                         <i class="am-icon-star"></i>
-                                        <span> 有3个来自人事部的消息</span>
+                                        <span> 有3个来自系统的消息</span>
                                     </div>
                                     <div class="tpl-dropdown-menu-notifications-time">
                                         30分钟前
@@ -144,7 +144,7 @@
                                 <a href="javascript:;" class="tpl-dropdown-menu-notifications-item am-cf">
                                     <div class="tpl-dropdown-menu-notifications-title">
                                         <i class="am-icon-folder-o"></i>
-                                        <span> 上午开会记录存档</span>
+                                        <span> 祝你生日快乐</span>
                                     </div>
                                     <div class="tpl-dropdown-menu-notifications-time">
                                         1天前
@@ -192,7 +192,7 @@
         <div class="tpl-sidebar-user-panel">
             <div class="tpl-user-panel-slide-toggleable">
                 <div class="tpl-user-panel-profile-picture">
-                    <img src="assets/img/user04.png" alt="">
+                    <img src="${pageContext.request.contextPath}/sys/assets/img/user04.png" alt="">
                 </div>
                 <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
@@ -202,74 +202,30 @@
             </div>
         </div>
 
-        <!-- 菜单 -->
         <ul class="sidebar-nav">
-            <li class="sidebar-nav-heading">Components <span class="sidebar-nav-heading-info"> 附加组件</span></li>
             <li class="sidebar-nav-link">
-                <a href="index.html" class="active">
+                <a href="${pageContext.request.contextPath}/sys/index" class="active">
                     <i class="am-icon-home sidebar-nav-link-logo"></i> 首页
                 </a>
             </li>
-            <li class="sidebar-nav-link">
-                <a href="tables.html">
-                    <i class="am-icon-table sidebar-nav-link-logo"></i> 表格
-                </a>
-            </li>
-            <li class="sidebar-nav-link">
-                <a href="calendar.html">
-                    <i class="am-icon-calendar sidebar-nav-link-logo"></i> 日历
-                </a>
-            </li>
-            <li class="sidebar-nav-link">
-                <a href="form.html">
-                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i> 表单
+            <li class="sidebar-nav-heading">Article <span class="sidebar-nav-heading-info"> 商品</span></li>
 
-                </a>
-            </li>
             <li class="sidebar-nav-link">
-                <a href="chart.html">
-                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 图表
+                <a href="${pageContext.request.contextPath}/sys/article">
+                    <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 商品管理
 
                 </a>
             </li>
 
-            <li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>
-            <li class="sidebar-nav-link">
-                <a href="javascript:;" class="sidebar-nav-sub-title">
-                    <i class="am-icon-table sidebar-nav-link-logo"></i> 数据列表
-                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
-                </a>
-                <ul class="sidebar-nav sidebar-nav-sub">
-                    <li class="sidebar-nav-link">
-                        <a href="table-list.html">
-                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 文字列表
-                        </a>
-                    </li>
+            <li class="sidebar-nav-heading">User<span class="sidebar-nav-heading-info"> 用户</span></li>
 
-                    <li class="sidebar-nav-link">
-                        <a href="table-list-img.html">
-                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表
-                        </a>
-                    </li>
-                </ul>
-            </li>
+
             <li class="sidebar-nav-link">
-                <a href="sign-up.html">
-                    <i class="am-icon-clone sidebar-nav-link-logo"></i> 注册
+                <a href="${pageContext.request.contextPath}/sys/user">
+                    <i class="am-icon-clone sidebar-nav-link-logo"></i> 用户管理
                     <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
                 </a>
             </li>
-            <li class="sidebar-nav-link">
-                <a href="login.html">
-                    <i class="am-icon-key sidebar-nav-link-logo"></i> 登录
-                </a>
-            </li>
-            <li class="sidebar-nav-link">
-                <a href="404.html">
-                    <i class="am-icon-tv sidebar-nav-link-logo"></i> 404错误
-                </a>
-            </li>
-
         </ul>
     </div>
 
@@ -404,16 +360,16 @@
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-4 widget-margin-bottom-lg ">
                     <div class="tpl-user-card am-text-center widget-body-lg">
                         <div class="tpl-user-card-title">
-                            禁言小张
+                            林凉席
                         </div>
                         <div class="achievement-subheading">
                             月度最佳员工
                         </div>
                         <img class="achievement-image" src="assets/img/user07.png" alt="">
                         <div class="achievement-description">
-                            禁言小张在
-                            <strong>30天内</strong> 禁言了
-                            <strong>200多</strong>人。
+                            林凉席在
+                            <strong>30天内</strong> 吃了
+                            <strong>200顿</strong>椰子鸡。
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import com.oldstore.model.Article;
 import com.oldstore.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,9 +28,22 @@ public class SysArticleController {
     }
 
     @RequestMapping("/sys/art/detail/{id}")
-    public String ArticleDetail(@PathVariable("id")Integer id) {
-        System.out.println(id);
-        return null;
+    public String ArticleDetail(@PathVariable("id")Integer id, Model model) {
+        Article article = articleService.queryById(id);
+        model.addAttribute("item", article);
+        return "syseditarticle";
+    }
+
+    @RequestMapping("/sys/art/update")
+    public String update(Article article) {
+        articleService.update(article);
+        return "redirect:/sys/article";
+    }
+
+    @RequestMapping("/sys/art/del/{id}")
+    public String update(@PathVariable("id")Integer id) {
+        articleService.delete(id);
+        return "redirect:/sys/article";
     }
 
     @RequestMapping("/sys/art/toadd")

@@ -202,6 +202,7 @@
             </div>
         </div>
 
+        <!-- 菜单 -->
         <ul class="sidebar-nav">
             <li class="sidebar-nav-link">
                 <a href="${pageContext.request.contextPath}/sys/index">
@@ -211,7 +212,7 @@
             <li class="sidebar-nav-heading">Article <span class="sidebar-nav-heading-info"> 商品</span></li>
 
             <li class="sidebar-nav-link">
-                <a href="${pageContext.request.contextPath}/sys/article" class="active">
+                <a href="${pageContext.request.contextPath}/sys/article">
                     <i class="am-icon-bar-chart sidebar-nav-link-logo"></i> 商品管理
 
                 </a>
@@ -221,7 +222,7 @@
 
 
             <li class="sidebar-nav-link">
-                <a href="${pageContext.request.contextPath}/sys/user">
+                <a href="${pageContext.request.contextPath}/sys/user" class="active">
                     <i class="am-icon-clone sidebar-nav-link-logo"></i> 用户管理
                     <span class="am-badge am-badge-secondary sidebar-nav-link-logo-ico am-round am-fr am-margin-right-sm">6</span>
                 </a>
@@ -236,11 +237,11 @@
         <div class="container-fluid am-cf">
             <div class="row">
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
-                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 商品列表 <small>SRTORE</small></div>
-                    <p class="page-header-description">商品信息</p>
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 用户列表 <small>USER</small></div>
+                    <p class="page-header-description">用户信息</p>
                 </div>
                 <div class="am-u-lg-3 tpl-index-settings-button">
-                    <a href="${pageContext.request.contextPath}/sys/art/toadd" class="page-header-button"><span class="am-icon-paint-brush"></span>新增商品</a>
+                    <a href="${pageContext.request.contextPath}/sys/user/toadd" class="page-header-button"><span class="am-icon-paint-brush"></span>新增用户</a>
                 </div>
             </div>
 
@@ -256,16 +257,15 @@
                                 <table width="100%" id="mytable" class="display">
                                     <thead>
                                     <tr>
-                                        <th>商品名称</th>
-                                        <th>标题</th>
-                                        <th>供应商</th>
-                                        <th>价格</th>
-                                        <th>原价</th>
-                                        <th>产地</th>
-                                        <th>上架时间</th>
-                                        <th>库存</th>
-                                        <th>类型</th>
-                                        <th>图片</th>
+                                        <th>账号</th>
+                                        <th>密码</th>
+                                        <th>姓名</th>
+                                        <th>性别</th>
+                                        <th>email</th>
+                                        <th>手机</th>
+                                        <th>地址</th>
+                                        <th>状态</th>
+                                        <th>角色</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -284,29 +284,40 @@
     $(document).ready(function() {
         $('#mytable').DataTable({
             "ajax": {
-                "url": "/sys/art/queryall",
+                "url": "/sys/user/queryall",
                 "dataSrc": ""
             },
             "aLengthMenu" : [5, 10, 20, 50, 100],
             "iDisplayLength" : 10,
             "columns": [
-                { "data": "articleName" },
-                { "data": "title" },
-                { "data": "supplier" },
-                { "data": "price" },
-                { "data": "prePrice" },
-                { "data": "locality" },
-                { "data": "putawayDate" },
-                { "data": "storage" },
-                { "data": "typeName" },
-                { data: "image",
+                { "data": "loginName" },
+                { "data": "passWord" },
+                { "data": "name" },
+                { data: "sex",
+                    render : function (data, type, full, meta) {
+                        if(data==0){
+                            return "女";
+                        } else {
+                            return "男";
+                        }
+                    }
+                },
+                { "data": "email" },
+                { "data": "phone" },
+                { "data": "address" },
+                { "data": "active" },
+                { data: "role",
                     render : function(data,type, full, meta) {
-                        return "<img width='140' height='140'src="+ "/upload/"+ data+" />";
+                    if(data==0){
+                        return "顾客";
+                    } else {
+                        return "管理员"
+                    }
                     }
                 },
                 { data: "id",
                     render : function (data, type, full, meta) {
-                        return "<a class='am-btn am-btn-warning am-radiusam-btn-xs' href=${pageContext.request.contextPath}/sys/art/detail/" +data +">详情</a>";
+                        return "<a class='am-btn am-btn-warning am-radiusam-btn-xs' href=${pageContext.request.contextPath}/sys/user/detail/" +data +">详情</a>";
                     }}
             ]
         });
