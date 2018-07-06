@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<c:forEach items="${list }" var="c">
             <div class="grid1_of_4" style="width: 180px;margin-top: 15px">
 				<div class="content_box"><a href="details.html">
-			   	   	 <img src="${pageContext.request.contextPath}/${c.getImage()}" class="img-responsive" alt=""/>
+			   	   	 <img src="${pageContext.request.contextPath}/upload/${c.getImage()}" class="img-responsive" alt=""/>
 				   	  </a>
 				    <h4><a href="/front/findByID?id=${c.getId()}">${c.getArticleName()}</a></h4>
 				     <p>${c.getTitle()}</p>

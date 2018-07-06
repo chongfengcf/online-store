@@ -111,9 +111,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="grid images_3_of_2">
 						<ul id="etalage">
 							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="${article.image}" class="img-responsive" />
-								</a>
+									<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/upload/${article.image}" class="img-responsive" />
+
 							</li>
 						</ul>
 						<div class="clearfix"></div>
