@@ -31,7 +31,7 @@ public class CarShopServiceImpl implements CarShopService {
     }
 
     @Override
-    public CarShop queryById(Integer id) {
+    public List<CarShop> queryById(Integer id) {
         return carshopdao.queryById(id);
     }
 
@@ -39,4 +39,5 @@ public class CarShopServiceImpl implements CarShopService {
     public List<CarShop> queryAll() {
         return carshopdao.queryAll();
     }
+
 }

@@ -42,6 +42,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         }
 
+        function cartJugeLogin() {
+            var s = <%=session.getAttribute("username") %>;
+            if(s!==null)
+            {
+				window.location.href = "${pageContext.request.contextPath}/front/queryCartByUserId?id=<%=session.getAttribute("userId")%>"
+            }else {
+                alert("请登录");
+            }
+
+        }
+
+        function addCarShop() {
+            var s = <%=session.getAttribute("username") %>;
+            if(s!==null)
+            {
+                return true;
+            }else {
+                alert("请登录");
+                return false;
+            }
+        }
+
 	</script>
 </head>
 <body>
@@ -53,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul>
 					<li id="login_li"><a href="/front/register">请登录</a></li>
 					<li id="login_success" style="display: none"></li>|
-					<li><a href="#">购物车</a></li>|
+					<li><a href="#" onclick="cartJugeLogin()">购物车</a></li>|
 					<li><a href="#">联系我们</a></li>
 				</ul>
 			</div>
@@ -142,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <div class="grid_1 simpleCart_shelfItem">
 
 					 <div class="item_add"><span class="item_price"><h6>$${c.getPrice()}</h6></span></div>
-					<div class="item_add"><span class="item_price"><a href="#" id="addCart" onclick=" "  >加入购物车</a></span></div>
+					<div class="item_add"><span class="item_price"><a href="${pageContext.request.contextPath}/front/addCarShop?id=<%=session.getAttribute("userId")%>&&articleId=${c.id}" onclick="return addCarShop()">加入购物车</a></span></div>
 					 </div>
 			   	</div>
 			</div>
