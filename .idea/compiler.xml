@@ -9,8 +9,5 @@
         <module name="olstore" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="olstore" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

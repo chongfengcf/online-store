@@ -238,6 +238,9 @@
                     <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 表单 <small>OLSRTORE</small></div>
                     <p class="page-header-description">在这里输入用户信息。</p>
                 </div>
+                <div class="am-u-lg-3 tpl-index-settings-button">
+                    <a href="${pageContext.request.contextPath}/sys/user/del/${item.id}" class="am-btn am-btn-danger am-btn-xl"><span class="am-icon-warning"></span>删除用户</a>
+                </div>
             </div>
 
         </div>

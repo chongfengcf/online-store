@@ -49,12 +49,12 @@
 
             <form class="am-form tpl-form-line-form">
                 <div class="am-form-group">
-                    <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入账号">
+                    <input type="text" class="tpl-form-input" id="username" placeholder="请输入账号">
 
                 </div>
 
                 <div class="am-form-group">
-                    <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码">
+                    <input type="password" class="tpl-form-input" id="password" placeholder="请输入密码">
 
                 </div>
                 <div class="am-form-group tpl-login-remember-me">
@@ -73,7 +73,7 @@
 
                 <div class="am-form-group">
 
-                    <button type="button" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+                    <button type="button" onclick="JsonLogin();" class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
 
                 </div>
             </form>
@@ -82,7 +82,26 @@
 </div>
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/app.js"></script>
-
+<script>
+function JsonLogin() {
+    var loginName = $("#username").val();
+    var passWord = $("#password").val();
+    $.ajax({
+        url : "${pageContext.request.contextPath}/sys/check",
+        type : "post",
+        data : JSON.stringify({loginName:loginName, passWord:passWord, role:1}),
+        contentType : "application/json;charset=UTF-8",
+        success : function (data) {
+            console.log(data);
+            if(data=="success") {
+                window.location.href='${pageContext.request.contextPath}/sys/index';
+            } else {
+                alert("用户名密码错误");
+            }
+        }
+    });
+}
+</script>
 </body>
 
 </html>
