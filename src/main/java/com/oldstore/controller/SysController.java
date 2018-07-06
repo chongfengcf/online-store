@@ -20,4 +20,9 @@ public class SysController {
     public String toArticle() {
         return "sysarticle";
     }
+
+    @RequestMapping("/sys/user")
+    public String toUser() {
+        return "sysuser";
+    }
 }

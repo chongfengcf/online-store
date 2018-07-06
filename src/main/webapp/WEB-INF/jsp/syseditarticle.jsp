@@ -240,6 +240,9 @@
                     <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 表单 <small>OLSRTORE</small></div>
                     <p class="page-header-description">在这里输入商品信息。</p>
                 </div>
+                <div class="am-u-lg-3 tpl-index-settings-button">
+                    <a href="${pageContext.request.contextPath}/sys/art/del/${item.id}" class="am-btn am-btn-danger am-btn-xl"><span class="am-icon-warning"></span>删除商品</a>
+                </div>
             </div>
 
         </div>
@@ -264,6 +267,7 @@
                                     <label class="am-u-sm-3 am-form-label">封面图 <span class="tpl-form-line-small-title">Images</span></label>
                                     <div class="am-u-sm-9">
                                         <div class="am-form-group am-form-file">
+                                            <img id="dbpic" src="${pageContext.request.contextPath}/upload/${item.image}" class="am-img-responsive am-img-thumbnail">
                                             <div id="uploader-demo">
                                                 <!--用来存放item-->
                                                 <div id="fileList" class="uploader-list"></div>
@@ -275,11 +279,11 @@
                                 </div>
                             </form>
 
-                            <form class="am-form tpl-form-line-form" action="${pageContext.request.contextPath}/sys/art/add" method="post">
+                            <form class="am-form tpl-form-line-form" action="${pageContext.request.contextPath}/sys/art/update" method="post">
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">商品名称 <span class="tpl-form-line-small-title">articleName</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="articleName" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="articleName" class="tpl-form-input" placeholder="请输入文字" value="${item.articleName}">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -287,7 +291,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">title</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="title" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="title" class="tpl-form-input" placeholder="请输入文字" value="${item.title}">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -295,7 +299,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">供应商 <span class="tpl-form-line-small-title">supplier</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="supplier" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="supplier" class="tpl-form-input" placeholder="请输入文字" value="${item.supplier}">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -303,7 +307,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">价格 <span class="tpl-form-line-small-title">price</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="number" name="price" step="0.01" class="tpl-form-input">
+                                        <input type="number" name="price" step="0.01" class="tpl-form-input" value="${item.price}">
                                         <small>输入价格</small>
                                     </div>
                                 </div>
@@ -311,7 +315,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">原价 <span class="tpl-form-line-small-title">prePrice</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="number" name="prePrice" step="0.01" class="tpl-form-input">
+                                        <input type="number" name="prePrice" step="0.01" class="tpl-form-input" value="${item.prePrice}">
                                         <small>输入价格</small>
                                     </div>
                                 </div>
@@ -319,7 +323,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">产地 <span class="tpl-form-line-small-title">locality</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="locality" class="tpl-form-input" placeholder="请输入文字">
+                                        <input type="text" name="locality" class="tpl-form-input" placeholder="请输入文字" value="${item.locality}">
                                         <small>请填写标题文字10-20字左右。</small>
                                     </div>
                                 </div>
@@ -327,7 +331,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="putawayDate" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="">
+                                        <input type="text" name="putawayDate" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="" value="${item.putawayDate}">
                                         <small>发布时间为必填</small>
                                     </div>
                                 </div>
@@ -335,7 +339,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">库存 <span class="tpl-form-line-small-title">storage</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="number" name="storage" step="1" min="1" max="99999" class="tpl-form-input">
+                                        <input type="number" name="storage" step="1" min="1" max="99999" class="tpl-form-input" value="${item.storage}">
                                         <small>输入库存</small>
                                     </div>
                                 </div>
@@ -344,7 +348,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">类别 <span class="tpl-form-line-small-title">typeName</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="typeName" placeholder="输入类别">
+                                        <input type="text" name="typeName" placeholder="输入类别" value="${item.typeName}">
                                     </div>
                                 </div>
 
@@ -352,11 +356,13 @@
                                 <div class="am-form-group">
                                     <label for="user-intro" class="am-u-sm-3 am-form-label">描述</label>
                                     <div class="am-u-sm-9">
-                                        <textarea name="description" class="" rows="10" id="user-intro" placeholder="描述"></textarea>
+                                        <textarea name="description" class="" rows="10" id="user-intro" placeholder="描述">${item.description}</textarea>
                                     </div>
                                 </div>
 
-                                <input type="hidden" id="imglocal" name="image" />
+                                <input type="hidden" name="id" value="${item.id}">
+
+                                <input type="hidden" id="imglocal" name="image" value="${item.image}"/>
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
@@ -408,7 +414,7 @@
             '</div>'
             ),
             $img = $li.find('img');
-
+        $("#dbpic").hide();
 
         // $list为容器jQuery实例
         $("#fileList").append( $li );
