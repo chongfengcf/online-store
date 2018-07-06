@@ -400,6 +400,8 @@
                                     </div>
                                 </div>
 
+                                <input type="hidden" id="imglocal" name="image" />
+
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
                                         <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
@@ -483,8 +485,10 @@
     });
 
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
-    uploader.on( 'uploadSuccess', function( file ) {
+    uploader.on( 'uploadSuccess', function( file ,response) {
         $( '#'+file.id ).addClass('upload-state-done');
+        console.log(response._raw);
+        $("#imglocal").val(response._raw);
     });
 
     // 文件上传失败，显示上传出错。

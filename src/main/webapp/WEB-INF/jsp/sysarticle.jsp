@@ -344,7 +344,7 @@
                 { "data": "typeName" },
                 { data: "image",
                     render : function(data,type, full, meta) {
-                        return "<img src="+data+" />";
+                        return "<img width='140' height='140'src="+ "/upload/"+ data+" />";
                     }
                 },
                 { data: "id",
