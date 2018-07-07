@@ -11,7 +11,8 @@ public interface CarShopService {
 
     int delete(Integer id);
 
-    CarShop queryById(Integer id);
+    List<CarShop> queryById(Integer id);
 
     List<CarShop> queryAll();
+
 }

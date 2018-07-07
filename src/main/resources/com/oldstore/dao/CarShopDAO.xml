@@ -17,10 +17,9 @@
   </resultMap>
 
   <insert id="insert" parameterType="com.oldstore.model.CarShop">
-    insert into ec_car_shop (ID, fk_ec_article_id, article_num,
-      CREATE_DATE)
-    values (#{id,jdbcType=INTEGER}, #{fkEcArticleId,jdbcType=INTEGER}, #{articleNum,jdbcType=INTEGER},
-      #{createDate,jdbcType=DATE})
+    insert into ec_car_shop (fk_ec_article_id, article_num,userId)
+    values (#{fkEcArticleId,jdbcType=INTEGER}, #{articleNum,jdbcType=INTEGER},
+      #{userId,jdbcType=INTEGER})
   </insert>
 
   <update id="update" parameterType="com.oldstore.model.CarShop">
@@ -36,8 +35,8 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
 
-  <select id="queryById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        SELECT * FROM ec_car_shop WHERE ID = #{id,jdbcType=INTEGER}
+  <select id="queryById" parameterType="java.lang.Integer" resultMap="ArticleResultMap">
+        SELECT * FROM ec_car_shop WHERE userID = #{id,jdbcType=INTEGER}
     </select>
 
   <select id="queryAll" resultMap="BaseResultMap">
