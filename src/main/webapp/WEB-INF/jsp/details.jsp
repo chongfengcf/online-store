@@ -25,16 +25,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 	<script src="${pageContext.request.contextPath}/front/js/jquery.etalage.min.js"></script>
 	<script src="${pageContext.request.contextPath}/front/js/menu_jquery.js"></script>
-	<script src="${pageContext.request.contextPath}/front/js/jquery-3.2.1.min.js"></script>
 	<script>
         jQuery(document).ready(function($){
 
             $('#etalage').etalage({
-                thumb_image_width: 300,
-                thumb_image_height: 400,
-                source_image_width: 900,
+                thumb_image_width: 240,
+                thumb_image_height: 240,
+                source_image_width: 1200,
                 source_image_height: 1200,
                 show_hint: true,
+                zoom_easing: true,
                 click_callback: function(image_anchor, instance_id){
                     alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
                 }
@@ -108,7 +108,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="header">
 			<div class="head-t">
 				<div class="logo">
-					<a href="index.html"><img src="../../front/images/logo.png" class="img-responsive" alt=""/> </a>
+					<a href="${pageContext.request.contextPath}"><img src="../../front/images/logo.png" class="img-responsive" alt=""/> </a>
+
 				</div>
 				<!-- start header_right -->
 				<div class="header_right">
@@ -149,8 +150,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="grid images_3_of_2">
 						<ul id="etalage">
 							<li>
-									<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/upload/${article.image}" class="img-responsive" />
 
+								<img class="etalage_thumb_image" src="${pageContext.request.contextPath}/upload/${article.image}" />
+								<img class="etalage_source_image" src="${pageContext.request.contextPath}/upload/${article.image}" alt="pic">
 							</li>
 						</ul>
 						<div class="clearfix"></div>
@@ -163,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>${article.title}</p>
 						<div class="price">
 							<span class="text">价格:</span>
-							<span class="price-new">$${article.price}</span><br>
+							<span class="price-new">Y${article.price}</span><br>
 						</div>
 						<div class="det_nav1">
 						</div>
