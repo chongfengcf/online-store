@@ -58,6 +58,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         }
 
+
+        function cartJugeLogin() {
+            var s = <%=session.getAttribute("username") %>;
+            if(s!==null)
+            {
+                window.location.href = "${pageContext.request.contextPath}/front/queryCartByUserId?id=<%=session.getAttribute("userId")%>"
+            }else {
+                alert("请登录");
+            }
+
+        }
+
+        function addCarShop() {
+            var s = <%=session.getAttribute("username") %>;
+            if(s!==null)
+            {
+                return true;
+            }else {
+                alert("请登录");
+                return false;
+            }
+        }
 	</script>
 </head>
 <body>
@@ -69,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul>
 					<li id="login_li"><a href="/front/register">请登录</a></li>
 					<li id="login_success" style="display: none"></li>|
-					<li><a href="#">购物车</a></li>|
+					<li><a href="#" onclick="cartJugeLogin()">购物车</a></li>|
 					<li><a href="#">联系我们</a></li>
 				</ul>
 			</div>
@@ -105,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<!-- start header menu -->
 			<ul class="megamenu skyblue">
-				<li class="active grid"><a class="color1" href="index.html">主页</a></li>
+				<li class="active grid"><a class="color1" href="/front/index">主页</a></li>
 				<li class="grid"><a class="color2" href="#">手机</a></li>
 				<li><a class="color4" href="#">衣服</a></li>
 				<li><a class="color5" href="#">书籍</a></li>
@@ -146,7 +168,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="det_nav1">
 						</div>
 						<div class="btn_form">
-							<a href="checkout.html">加入购物车</a>
+							<div class="item_add"><span class="item_price"><a href="${pageContext.request.contextPath}/front/addCarShop?id=<%=session.getAttribute("userId")%>&&articleId=${article.id}" onclick="return addCarShop()">加入购物车</a></span></div>
 						</div>
 					</div>
 					<div class="clearfix"></div>
