@@ -16,6 +16,10 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @RequestMapping("/")
+    public String toIndex() {
+        return "redirect:/front/index";
+    }
     @RequestMapping("/front/index")
     public String queryAllArticle(Model model){
 

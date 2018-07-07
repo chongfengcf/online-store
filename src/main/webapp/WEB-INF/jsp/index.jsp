@@ -134,14 +134,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div></div>
 			<c:forEach items="${list }" var="c">
             <div class="grid1_of_4" style="width: 180px;margin-top: 15px">
-				<div class="content_box"><a href="details.html">
+				<div class="content_box"><a href="/front/findByID?id=${c.getId()}">
 			   	   	 <img src="${pageContext.request.contextPath}/upload/${c.getImage()}" class="img-responsive" alt=""/>
 				   	  </a>
 				    <h4><a href="/front/findByID?id=${c.getId()}">${c.getArticleName()}</a></h4>
 				     <p>${c.getTitle()}</p>
 					 <div class="grid_1 simpleCart_shelfItem">
 
-					 <div class="item_add"><span class="item_price"><h6>$${c.getPrice()}</h6></span></div>
+					 <div class="item_add"><span class="item_price"><h6>￥${c.getPrice()}</h6></span></div>
 					<div class="item_add"><span class="item_price"><a href="#" id="addCart" onclick=" "  >加入购物车</a></span></div>
 					 </div>
 			   	</div>
