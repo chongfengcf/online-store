@@ -111,14 +111,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 		<!-- start header menu -->
 			<ul class="megamenu skyblue">
-                <li class="active grid"><a class="color1" href="/front/index">主页</a></li>
-                <li class="grid"><a class="color2" href="#">手机</a></li>
-                <li><a class="color4" href="#">衣服</a></li>				
-                <li><a class="color5" href="#">书籍</a></li>
-                <li><a class="color6" href="#">零食</a></li>				
-			    <li><a class="color7" href="#">冲锋枪</a></li>				
-			    <li><a class="color8" href="#">手枪</a></li>
-				<li><a class="color9" href="#">手榴弹</a></li>
+				<li class="active grid"><a class="color1" href="/front/index">主页</a></li>
+				<li><a class="color4" href="${pageContext.request.contextPath}/front/findByType?type=水果">水果</a></li>
+				<li><a class="color5" href="${pageContext.request.contextPath}/front/findByType?type=手表">手表</a></li>
+				<li><a class="color6" href="${pageContext.request.contextPath}/front/findByType?type=手机">手机</a></li>
+				<li><a class="color7" href="${pageContext.request.contextPath}/front/findByType?type=零食">零食</a></li>
+				<li><a class="color8" href="${pageContext.request.contextPath}/front/findByType?type=杂物">杂物</a></li>
 		     </ul> 
 	</div>
 </div>
@@ -133,12 +131,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h4>所有类型</h4>
 				<div class="w_nav1">
                     <ul>
-                        <li><a style="font-size:15px;margin-top:10px" href="#">手机</a></li>
-                        <li><a style="font-size:15px;margin-top:10px" href="#">衣服</a></li>
-                        <li><a style="font-size:15px;margin-top:10px" href="#">书籍</a></li>
-                        <li><a style="font-size:15px;margin-top:10px" href="#">零食</a></li>
-                        <li><a style="font-size:15px;margin-top:10px" href="#">冲锋枪</a></li>
-                        <li><a style="font-size:15px;margin-top:10px" href="#">手枪</a></li>
+						<li><a style="font-size:15px;margin-top:10px" href="${pageContext.request.contextPath}/front/findByType?type=水果">水果</a></li>
+						<li><a style="font-size:15px;margin-top:10px" href="${pageContext.request.contextPath}/front/findByType?type=手表">手表</a></li>
+						<li><a style="font-size:15px;margin-top:10px" href="${pageContext.request.contextPath}/front/findByType?type=手机">手机</a></li>
+						<li><a style="font-size:15px;margin-top:10px" href="${pageContext.request.contextPath}/front/findByType?type=零食">零食</a></li>
+						<li><a style="font-size:15px;margin-top:10px" href="${pageContext.request.contextPath}/front/findByType?type=杂物">杂物</a></li>
                     </ul>	
                 </div>
 		</section>

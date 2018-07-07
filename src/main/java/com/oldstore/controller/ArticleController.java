@@ -51,4 +51,10 @@ public class ArticleController {
         return "details";
     }
 
+    @RequestMapping("/front/findByType")
+    public String findByType(String type, Model model) {
+        List<Article> articles = articleService.queryByTypeName(type);
+        model.addAttribute("list",articles);
+        return "index";
+    }
 }

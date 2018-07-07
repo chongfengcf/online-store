@@ -19,5 +19,7 @@ public interface ArticleDAO {
 
     List<Article> queryAll();
 
+    List<Article> queryByTypeName(String typename);
+
     List<Article> queryByName(String article_name);
 }

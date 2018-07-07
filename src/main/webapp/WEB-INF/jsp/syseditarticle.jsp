@@ -1,5 +1,6 @@
 ﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -331,7 +332,7 @@
                                 <div class="am-form-group">
                                     <label class="am-u-sm-3 am-form-label">发布时间 <span class="tpl-form-line-small-title">Time</span></label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" name="putawayDate" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="" value="${item.putawayDate}">
+                                        <input type="text" name="putawayDate" class="am-form-field tpl-form-no-bg" placeholder="发布时间" data-am-datepicker="" readonly="" value="<fmt:formatDate value="${item.putawayDate}" pattern="yyyy-MM-dd" />">
                                         <small>发布时间为必填</small>
                                     </div>
                                 </div>

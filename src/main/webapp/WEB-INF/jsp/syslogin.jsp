@@ -1,5 +1,6 @@
 ﻿﻿<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +58,9 @@
                     <input type="password" class="tpl-form-input" id="password" placeholder="请输入密码">
 
                 </div>
-                <div class="am-form-group tpl-login-remember-me">
-                    <input id="remember-me" type="checkbox">
-                    <label for="remember-me">
-
-                        记住密码
-                    </label>
-
+                <div class="am-form-group">
+                    <div id="mpanel1" >
+                    </div>
                 </div>
 
 
@@ -82,8 +79,12 @@
 </div>
 <script src="${pageContext.request.contextPath}/sys//assets/js/amazeui.min.js"></script>
 <script src="${pageContext.request.contextPath}/sys//assets/js/app.js"></script>
+
+
+
 <script>
-function JsonLogin() {
+
+    function JsonLogin() {
     var loginName = $("#username").val();
     var passWord = $("#password").val();
     $.ajax({

@@ -64,4 +64,8 @@
   <select id="queryByName" parameterType="java.lang.String" resultMap="BaseResultMap">
       SELECT * FROM ec_article WHERE ARTICLE_NAME LIKE CONCAT('%',#{article_name,jdbcType=VARCHAR},'%' )
   </select>
+
+  <select id="queryByTypeName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT * FROM ec_article WHERE TYPE_NAME=#{typename,jdbcType=VARCHAR}
+    </select>
 </mapper>

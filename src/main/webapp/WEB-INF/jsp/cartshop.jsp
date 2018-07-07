@@ -20,7 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start menu -->
 <link href="${pageContext.request.contextPath}/front/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/front/js/megamenu.js"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <script src="${pageContext.request.contextPath}/front/js/menu_jquery.js"></script>
 <script src="${pageContext.request.contextPath}/front/js/simpleCart.min.js"> </script>
 <script src="${pageContext.request.contextPath}/front/js/jquery-3.2.1.min.js"></script>
@@ -29,8 +28,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             jugeLogin();
         });
         function jugeLogin() {
-            var s = <%=session.getAttribute("username") %>;
-            if(s!=null)
+            var s = "<%=session.getAttribute("username") %>";
+            if(s!="null")
             {
                 document.getElementById('login_li').style.display = "none";
                 document.getElementById('login_success').style.display = "inline";
@@ -41,8 +40,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         function payJugeLogin() {
-            var s = <%=session.getAttribute("username") %>;
-            if(s!==null)
+            var s = "<%=session.getAttribute("username") %>";
+            if(s!="null")
 			{
 
 			}else {
@@ -98,14 +97,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 		<!-- start header menu -->
 			<ul class="megamenu skyblue">
-                <li class="active grid"><a class="color1" href="/front/index">主页</a></li>
-                <li class="grid"><a class="color2" href="#">手机</a></li>
-                <li><a class="color4" href="#">衣服</a></li>				
-                <li><a class="color5" href="#">书籍</a></li>
-                <li><a class="color6" href="#">零食</a></li>				
-			    <li><a class="color7" href="#">冲锋枪</a></li>				
-			    <li><a class="color8" href="#">手枪</a></li>
-				<li><a class="color9" href="#">手榴弹</a></li>
+				<li class="active grid"><a class="color1" href="/front/index">主页</a></li>
+				<li><a class="color4" href="${pageContext.request.contextPath}/front/findByType?type=水果">水果</a></li>
+				<li><a class="color5" href="${pageContext.request.contextPath}/front/findByType?type=手表">手表</a></li>
+				<li><a class="color6" href="${pageContext.request.contextPath}/front/findByType?type=手机">手机</a></li>
+				<li><a class="color7" href="${pageContext.request.contextPath}/front/findByType?type=零食">零食</a></li>
+				<li><a class="color8" href="${pageContext.request.contextPath}/front/findByType?type=杂物">杂物</a></li>
 		     </ul> 
 	</div>
 </div>
@@ -117,14 +114,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <div class="price-details">
 				 <h3>购物清单</h3>
 				 <span>商品总价</span>
-				 <span class="total1">6200.00</span>
+				 <span class="total1" id="chaopiao">6200.00</span>
 				 <span>运费</span>
-				 <span class="total1">150.00</span>
+				 <span class="total1">0.00</span>
 				 <div class="clearfix"></div>				 
 			 </div>	
 			 <ul class="total_price">
 			   <li class="last_price"> <h4>总价</h4></li>	
-			   <li class="last_price"><span>6350.00</span></li>
+			   <li class="last_price"><span id="yigong">6350.00</span></li>
 			   <div class="clearfix"> </div>
 			 </ul>
 			
@@ -139,13 +136,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 <div class="close1"><a href="/front/deleteCarShop?id=${list.id}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> </div>
 				 <div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							 <img src="${pageContext.request.contextPath}/${list.article.image}" class="img-responsive" alt=""/>
+							 <%--<img src="${pageContext.request.contextPath}/${list.article.image}" class="img-responsive" alt=""/>--%>
 						</div>
 					   <div class="cart-item-info">
 						<h3><a href="#">${list.article.articleName}</a><span>${list.article.title}</span></h3>
 						<ul class="qty">
-							<li><p>${list.article.typeName}</p></li>
-							<li><p>${list.articleNum}</p></li>
+							<li><p>商品类型：${list.article.typeName}</p></li>
+							<li><p>数量：${list.articleNum}</p></li>
 						</ul>
 						
 							 <div class="delivery">
@@ -212,5 +209,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p>Copyright &copy; 2015.Company name All rights reserved.</p>
 	</div>
 </div>
+<script>
+	var sum = 0;
+	<c:forEach items="${list}" var="i">
+		sum = sum + ${i.article.price}*${i.articleNum};
+	</c:forEach>
+	$("#chaopiao").html(sum);
+	$("#yigong").html(sum);
+</script>
 </body>
 </html>

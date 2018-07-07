@@ -16,4 +16,6 @@ public interface ArticleService {
     List<Article> queryAll();
 
     List<Article> queryByName(String article_name);
+
+    List<Article> queryByTypeName(String typename);
 }
